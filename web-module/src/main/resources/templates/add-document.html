@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <title>Add document</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" href="/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <form
+            th:action="@{/documents/add}"
+            action="/documents/add"
+            th:object="${document}"
+            method="post">
+        Please enter document description here<br>
+        <span
+                th:if="${#fields.hasErrors ('description')}"
+                th:errors="*{description}"
+                style="color:red">
+        </span><br>
+        <input th:field="*{description}" type="text" name="description"><br><br>
+        <button type="submit" class="btn btn-outline-success">Add document</button>
+    </form>
+</div>
+<script th:src="@{/js/jquery-3.4.1.slim.min.js}" src="/js/jquery-3.4.1.slim.min.js"></script>
+<script th:src="@{/js/popper.min.js}" src="/js/popper.min.js"></script>
+<script th:src="@{/js/bootstrap.min.js}" src="/js/bootstrap.min.js"></script>
+</body>
+</html>
