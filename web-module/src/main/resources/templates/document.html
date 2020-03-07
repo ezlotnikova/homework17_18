@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <title>Document</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" href="/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <div th:object="${document}">
+        <p class="font-weight-bold">
+            Unique Number
+        </p>
+        <p class="font-weight-normal" th:text="*{uniqueNumber}"></p>
+        <p class="font-weight-bold">
+            Description
+        </p>
+        <p class="font-weight-normal" th:text="*{description}"></p>
+        <br>
+        <form
+                th:action="@{/documents/delete/{id}(id=*{id})}"
+                action="/documents/delete"
+                method="get">
+            <input type="submit" class="btn btn-outline-danger" value="Delete document"/>
+        </form>
+    </div>
+</div>
+<script th:src="@{/js/jquery-3.4.1.slim.min.js}" src="/js/jquery-3.4.1.slim.min.js"></script>
+<script th:src="@{/js/popper.min.js}" src="/js/popper.min.js"></script>
+<script th:src="@{/js/bootstrap.min.js}" src="/js/bootstrap.min.js"></script>
+</body>
+</html>
